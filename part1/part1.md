@@ -26,7 +26,7 @@ or
 ## Questions and Answers
 
 1.	list contents of current directory
-
+`ls`
 2.	list contents in “/etc” directory
 
 3.	list contents of current directory using long listing format
