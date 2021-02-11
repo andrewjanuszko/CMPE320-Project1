@@ -68,13 +68,13 @@ or
 21.	search for manual pages that contain the keyword ‘create’
 `man -k create`
 22.	create a tape archive (tar) file named "backup.tar" from the contents of the directory "/etc/network"
-
+`tar -cvf backup /etc/network`
 23.	create a gzip compressed tape archive (tar) file named "backup.tgz" from the contents of the directory "/etc/network"
-
+`tar -czf backup.tgz /etc/network`
 24.	extract a tape archive (tar) "simple.tar" file to the current directory, using verbose output
-
+`tar -xvf simple.tar`
 25.	create a “.zip” file "backup.zip" of all the files in the /etc/directory, including subdirectories
-
+`zip -r backup.zip /etc/directory`
 26.	extract all of the files from the files.zip file
 
 27.	Show the amount of disk free space available on the system, in human readable format
