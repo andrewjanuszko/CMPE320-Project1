@@ -28,45 +28,45 @@ or
 1.	list contents of current directory
 `ls`
 2.	list contents in “/etc” directory
-
+`ls /etc`
 3.	list contents of current directory using long listing format
-
+`ls -l`
 4.	list contents of current directory using long listing format and with sizes printed as “human readable” out-put
-
+`ls -lh`
 5.	list contents of current directory – including hidden files 
-
+`ls -a`
 6.	create a new directory named “foo”
-
+`mkdir foo`
 7.	change your current directory into “foo”
-
+`cd foo`
 8.	print your current working directory
-
+`pwd`
 9.	create a new, 0 byte size file called ‘bob’
-
+`xfs_mkfile 0 bob`
 10.	move / rename a file named ‘bob’ to ‘chip’
-
+`mv bob chip`
 11.	copy  ‘chip’ to ‘dave’
-
+`cp chip dave`
 12.	remove the file ‘chip’
-
+`rm chip`
 13.	cd “up” a directory
-
+`cd ..`
 14.	remove the ‘foo’ whole directory, even if it has files in it
-
+`rm -r foo`
 15.	concatenate two files, “/etc/issue” and “/etc/issue.net” to the screen
-
+`cat /etc/issue /etc/issue.net`
 16.	list only your running processes on the system
-
+`ps`
 17.	list all running processes on the system, including command line arguments.
-
+`ps -a`
 18.	kill process 3345
-
+`kill 3345`
 19.	list who is logged on to the system
-
+`w`
 20.	read the manual page about command 'command'
-
+`man command`
 21.	search for manual pages that contain the keyword ‘create’
-
+`man -k create`
 22.	create a tape archive (tar) file named "backup.tar" from the contents of the directory "/etc/network"
 
 23.	create a gzip compressed tape archive (tar) file named "backup.tgz" from the contents of the directory "/etc/network"
