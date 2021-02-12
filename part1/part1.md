@@ -76,33 +76,34 @@ or
 25.	create a “.zip” file "backup.zip" of all the files in the /etc/directory, including subdirectories
 `zip -r backup.zip /etc/directory`
 26.	extract all of the files from the files.zip file
-
+`unzip files.zip`
 27.	Show the amount of disk free space available on the system, in human readable format
-
+`df -h`
 28.	Show the amount of space used by the `/usr` directory (including its subdirs) in human readable format
-
+`du -h /usr`
 29.	Display the text “hello world” on your terminal
-
+`echo "hello world"`
 30.	Use the “nohup” command to run a long-running program, in this case "sleep 15"
-
+`nohup sleep 15`
 31.	Find all of the lines of all .java files that match the string “public static void”
-
+`grep 'public static void' *.java`
 32.	Find all of the lines of a file that do NOT match the string “public static void”
-
+`grep -v 'public static void'`
 33.	The file 'addrbook.txt' is separated by tabs.  Find all of the lines that start with either Martin or martin.  Look at regular expressions.
 
 34.	Use the cut command to select only columns 10-20 of the addrbook.txt
-
+`cut -c 10-20 addrbook.txt`
 35.	Use the cut command to select fields 1,3,5 from a comma delimited file (CSV) addrbook.csv
-
+`cut -d ',' -f 1,3,5 addrbook.csv`
 36.	Use the head command to select the first 10 lines of the addrbook.txt file
-
+`head addrbook.txt`
 37.	Use the tail command to select the last 10 lines of a file
-
+`tail addrbook.txt`
 38.	Use the tail command to show the last lines of a file and then any new lines as they arrive
-
+`tail -f`
 39.	Sort a text file addrbook.txt in alphanumeric, ascending order
-
+`sort addrbook.txt`
 40.	Sort a text file in alphanumeric, descending order
-
+`sort -r addrbook.txt`
 41.	Sort a text file nums.txt in numeric order
+`sort -n addrbook.txt`
