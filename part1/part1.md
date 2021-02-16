@@ -42,7 +42,7 @@ or
 8.	print your current working directory
 `pwd`
 9.	create a new, 0 byte size file called ‘bob’
-`xfs_mkfile 0 bob`
+`touch bob`
 10.	move / rename a file named ‘bob’ to ‘chip’
 `mv bob chip`
 11.	copy  ‘chip’ to ‘dave’
@@ -58,7 +58,7 @@ or
 16.	list only your running processes on the system
 `ps`
 17.	list all running processes on the system, including command line arguments.
-`ps -a`
+`ps -aux`
 18.	kill process 3345
 `kill 3345`
 19.	list who is logged on to the system
@@ -66,7 +66,7 @@ or
 20.	read the manual page about command 'command'
 `man command`
 21.	search for manual pages that contain the keyword ‘create’
-`man -k create`
+`man -K "create"`
 22.	create a tape archive (tar) file named "backup.tar" from the contents of the directory "/etc/network"
 `tar -cvf backup /etc/network`
 23.	create a gzip compressed tape archive (tar) file named "backup.tgz" from the contents of the directory "/etc/network"
