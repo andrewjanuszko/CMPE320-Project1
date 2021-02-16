@@ -58,7 +58,7 @@ or
 16.	list only your running processes on the system
 `ps`
 17.	list all running processes on the system, including command line arguments.
-`ps -aux`
+`ps -eaf`
 18.	kill process 3345
 `kill 3345`
 19.	list who is logged on to the system
@@ -100,7 +100,7 @@ or
 37.	Use the tail command to select the last 10 lines of a file
 `tail addrbook.txt`
 38.	Use the tail command to show the last lines of a file and then any new lines as they arrive
-`tail -f`
+`tail -f addrbook.txt` 
 39.	Sort a text file addrbook.txt in alphanumeric, ascending order
 `sort addrbook.txt`
 40.	Sort a text file in alphanumeric, descending order
