@@ -33,33 +33,33 @@ also really common and offer a wide variety of tools, knowing the basics of the
 
 
 1.	Write the command line to use vi or vim to edit a file
-
+`vim`
 2.	From within vim, how would you save a file
-
+`:x`
 3.	From within vim, how would force save a file
 
 4. Write the current file to a new file name 'moe.txt':
-
+`:w moe.txt`
 5.	From within vim, how you insert one file into another file
-
+`:r`
 6.	Write a sed script to replace all commas with colons in a file named "commas.txt"
-
+`sed 's/,/:/g' commas.txt`
 7.	Write the vim command to replace all commas with colons in the current line in the editor:
-
+`:s/,/:/g`
 8.	Write the vim command to replace all commas with colons in the whole file:
-
+`:%s/,/:/g`
 9.	Yank 8 lines from the current editor text into the copy buffer (hint: this does not get the colon):
-
+`8Y`
 10. Paste the contents of the current copy buffer at the location of the cursor (hint: this doesn't get the colon either):
-
+`P`
 11. Use the "bang" operator to run "gcc test.c":
-
+`! gcc test.c
 12. Use vim's internal make command to build a project?
-
+`:make`
 13. After using vim's internal make command, how you go to the next compliation error? (see :h quickfix.txt for direction)
-
+`:cnext`
 14. After using vim's internal make command, how you go to the previous compliation error? (see :h quickfix.txt for direction)
-
+`cprevious`
 
 # Using GIT
 This section explores using `git` from the command line.  Git was designed for use at the command line, and while there 
@@ -69,31 +69,31 @@ For example, setting up an automated testing environment that will pull a commit
 code base.
 
 15. Use `git` to clone a repository: `https://github.com/githubtraining/hellogitworld.git` to the current directory.
-
+`git clone https://github.com/githubtraining/hellogitworld.git`
 16. Use `git` to initialize create a new repository from the current directory
-
+`git init`
 17. Use `git` to add all of the '*.java' files the _staged changes_ to be committed
-
+`git add \./\*.java`
 18. Use `git` to commit the current _staged changes_ to the current (local) repository with a message "fixed bug #334"
-
+`git commit -m "fixed bug #334"`
 19. Use `git` to add a remote repository named 'origin' using the URL: `https://gitlab.engr.ship.edu/aa1234/bestproject.git` 
-
+`git remote add origin https://gitlab.engr.ship.edu/aa1234/bestproject.git`
 20. Use `git` to push changes to a remote repository named `origin` (the default):
-
+`git push origin`
 21. Use `git` to add an additional remote repository named 'testing' using the URL: `https://gitlab.engr.ship.edu/bb5678/testing.git`
-
+`git remote add testing http://gitlab.engr.ship.edu/bb5678/testing.git`
 22. Use `git` to push changes to the new testing repository only:
-
+`git push testing`
 23. Use `git` to merge changes from the `remote` repository to your local repository:
-
+`git merge remote`
 24. Use `git` to fetch any changes from the `remote` repository into your local repository:
-
+`git fetch remote`
 25. Use `git` to compare the branch `version1` with the current state of the repository:
-
+`git diff version1`
 26. Use `git` to revert any changes to the file named 'main.c':
-
+`git-restore main.c`
 27. Use `git` to revert all changes to all files:
-
+`git restore .`
 28. The git log contains a history of all commits made to a project.  It can be really useful to assess how much someone is contributing to a project.  Using what you've learned so far, use the git log command to retrieve all the commits, find just the author entries, remove the "Author:" tag, sort them, count the unique entires, and the sort the list in descending order.
 
 
