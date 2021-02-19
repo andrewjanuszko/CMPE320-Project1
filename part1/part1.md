@@ -88,7 +88,7 @@ or
 31.	Find all of the lines of all .java files that match the string “public static void”
 `grep 'public static void' *.java`
 32.	Find all of the lines of a file that do NOT match the string “public static void”
-`grep -v 'public static void'`
+`grep -v 'public static void' `
 33.	The file 'addrbook.txt' is separated by tabs.  Find all of the lines that start with either Martin or martin.  Look at regular expressions.
 
 34.	Use the cut command to select only columns 10-20 of the addrbook.txt
@@ -106,4 +106,4 @@ or
 40.	Sort a text file in alphanumeric, descending order
 `sort -r addrbook.txt`
 41.	Sort a text file nums.txt in numeric order
-`sort -k 8 addrbook.txt`
+`sort -k 9 addrbook.txt`
