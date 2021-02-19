@@ -90,7 +90,7 @@ or
 32.	Find all of the lines of a file that do NOT match the string “public static void”
 `grep -v 'public static void' `
 33.	The file 'addrbook.txt' is separated by tabs.  Find all of the lines that start with either Martin or martin.  Look at regular expressions.
-`grep -v 'martin' -i`
+`grep -v 'martin' -i addrbook.txt`
 34.	Use the cut command to select only columns 10-20 of the addrbook.txt
 `cut -c 10-20 addrbook.txt`
 35.	Use the cut command to select fields 1,3,5 from a comma delimited file (CSV) addrbook.csv
