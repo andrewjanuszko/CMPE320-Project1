@@ -74,7 +74,7 @@ or
 24.	extract a tape archive (tar) "simple.tar" file to the current directory, using verbose output
 `tar -xvf simple.tar`
 25.	create a “.zip” file "backup.zip" of all the files in the /etc/directory, including subdirectories
-`tar -cvf backup.zip /etc`
+`zip -r backup.zip /etc`
 26.	extract all of the files from the files.zip file
 `unzip files.zip`
 27.	Show the amount of disk free space available on the system, in human readable format
