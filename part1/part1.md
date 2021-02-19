@@ -88,7 +88,7 @@ or
 31.	Find all of the lines of all .java files that match the string “public static void”
 `grep 'public static void' *.java`
 32.	Find all of the lines of a file that do NOT match the string “public static void”
-`grep -v 'public static void' `
+`grep -v 'public static void' Primes.java jgui.java jprimes.java`
 33.	The file 'addrbook.txt' is separated by tabs.  Find all of the lines that start with either Martin or martin.  Look at regular expressions.
 `grep '^[Mm]artin' addrbook.txt`
 34.	Use the cut command to select only columns 10-20 of the addrbook.txt
