@@ -74,7 +74,7 @@ or
 24.	extract a tape archive (tar) "simple.tar" file to the current directory, using verbose output
 `tar -xvf simple.tar`
 25.	create a “.zip” file "backup.zip" of all the files in the /etc/directory, including subdirectories
-`zip -r backup.zip etc/directory`
+`zip -r backup.zip /etc/directory`
 26.	extract all of the files from the files.zip file
 `unzip files.zip`
 27.	Show the amount of disk free space available on the system, in human readable format
@@ -100,7 +100,7 @@ or
 37.	Use the tail command to select the last 10 lines of a file
 `tail addrbook.txt`
 38.	Use the tail command to show the last lines of a file and then any new lines as they arrive
-`tail -f addrbook.txt` 
+`tail -f` 
 39.	Sort a text file addrbook.txt in alphanumeric, ascending order
 `sort addrbook.txt`
 40.	Sort a text file in alphanumeric, descending order
