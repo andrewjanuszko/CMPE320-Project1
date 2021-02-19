@@ -68,9 +68,9 @@ or
 21.	search for manual pages that contain the keyword ‘create’
 `apropos create`
 22.	create a tape archive (tar) file named "backup.tar" from the contents of the directory "/etc/network"
-`tar -cvf backup.tar etc/network`
+`tar -cvf backup.tar /etc/network`
 23.	create a gzip compressed tape archive (tar) file named "backup.tgz" from the contents of the directory "/etc/network"
-`tar -czf backup.tgz /etc/network`
+`tar -cvzf backup.tgz /etc/network`
 24.	extract a tape archive (tar) "simple.tar" file to the current directory, using verbose output
 `tar -xvf simple.tar`
 25.	create a “.zip” file "backup.zip" of all the files in the /etc/directory, including subdirectories
