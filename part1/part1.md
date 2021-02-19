@@ -106,4 +106,4 @@ or
 40.	Sort a text file in alphanumeric, descending order
 `sort -r addrbook.txt`
 41.	Sort a text file nums.txt in numeric order
-`sort -n addrbook.txt`
+`sort -n nums.txt`
