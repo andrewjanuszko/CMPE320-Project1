@@ -80,7 +80,7 @@ or
 27.	Show the amount of disk free space available on the system, in human readable format
 `df -h`
 28.	Show the amount of space used by the `/usr` directory (including its subdirs) in human readable format
-`du -h /usr`
+`du -sh /usr`
 29.	Display the text “hello world” on your terminal
 `echo "hello world"`
 30.	Use the “nohup” command to run a long-running program, in this case "sleep 15"
