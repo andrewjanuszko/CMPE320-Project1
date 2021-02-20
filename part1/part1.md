@@ -100,7 +100,7 @@ or
 37.	Use the tail command to select the last 10 lines of a file
 `tail addrbook.txt`
 38.	Use the tail command to show the last lines of a file and then any new lines as they arrive
-`tail -f addrbook.txt` 
+`tail -F addrbook.txt` 
 39.	Sort a text file addrbook.txt in alphanumeric, ascending order
 `sort addrbook.txt`
 40.	Sort a text file in alphanumeric, descending order
