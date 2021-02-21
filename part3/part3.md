@@ -41,7 +41,7 @@ also really common and offer a wide variety of tools, knowing the basics of the
 4. Write the current file to a new file name 'moe.txt':
 `:w moe.txt`
 5.	From within vim, how you insert one file into another file
-`:r`
+`:w>> file`
 6.	Write a sed script to replace all commas with colons in a file named "commas.txt"
 `sed 's/,/:/g' commas.txt`
 7.	Write the vim command to replace all commas with colons in the current line in the editor:
@@ -53,7 +53,7 @@ also really common and offer a wide variety of tools, knowing the basics of the
 10. Paste the contents of the current copy buffer at the location of the cursor (hint: this doesn't get the colon either):
 `p`
 11. Use the "bang" operator to run "gcc test.c":
-`!gcc test.c`
+`!gcc`
 12. Use vim's internal make command to build a project?
 `:make`
 13. After using vim's internal make command, how you go to the next compliation error? (see :h quickfix.txt for direction)
@@ -91,9 +91,9 @@ code base.
 25. Use `git` to compare the branch `version1` with the current state of the repository:
 `git diff version1`
 26. Use `git` to revert any changes to the file named 'main.c':
-`git-revert main.c`
+`git checkout HEAD -- main.c`
 27. Use `git` to revert all changes to all files:
-`git-revert .`
+`git reset --hard`
 28. The git log contains a history of all commits made to a project.  It can be really useful to assess how much someone is contributing to a project.  Using what you've learned so far, use the git log command to retrieve all the commits, find just the author entries, remove the "Author:" tag, sort them, count the unique entires, and the sort the list in descending order.
 
 
@@ -104,15 +104,15 @@ The GNU debugger is one of the most important tools for a developer.  This set o
 `gdb debug.bin`
 
 30. GDB can run the program under test, and can even give command line arguments to it.  Give the GDB commands to set three command line arguments to the program: "one two three", and then run the program.  Do not show the command to run GDB, the test do that for you (i.e. it will use the command from question #28).
-`set args "one, two, three"`
+`set args one two three`
 
 31. When a program crashes, UNIX systems can be configured to _dump core_, a historical term from the days of the old core memory systems.  The core file is a complete description of your process when the OS killed it.  This is incredibly useful for _post mortem_ debugging, especially for complex programs.  However, the size of these files can be quite large, so the feature is turned off by default.  Show the `ulimit` command to enable the generation of a core file when a program crashes.
 `ulimit -c unlimited`
 32. Use the GDB to open a core file and print the location where it aborted.  Give just the input to GDB, the test will run GDB for you.
-`gdb core`
+`program core`
 33. GDB allows you to set break points before running a program.  Give the command to set a break point on a function called "copy", and then run the program.
 ```
-gdb break copy
+break copy
 run
 ```
 34. GDB tracks the connection between source code and executable code.  Show the GDB commands to list only the source for the copy function, and then print a break point on the line for the memcpy.  As before, GDB will already be running.
@@ -140,14 +140,14 @@ break memcpy
 Perhaps one of the most important developer's tools for C programmers is `valgrind`, a tool that will analyze the execution of your code and analyze it for memory issues, performance issues, and other problems.
 
 40. The `debug.bin` program in that we've been using clearly has a segfault.  Show the command to run `valgrind` on your this program.
-`valgrind ./debug.bin`
+`valgrind debug.bin`
 41. Valgrind can also track full details about leaked memory.  Show the valgrind command line to perform a full leak check on the `./debug.bin`:
-`valgrind ./debug.bin --leak-check=full`
+`valgrind --leak-check=full debug.bin ./debug.bin`
 42. Valgrind includes several different tools.  One interesting one is the `cachegrind` tool, which can show instruction hits/misses, as well as branch prediction accuracy.  Show the command to run the `cachegrind` tool on `/bin/ls`:
-`valgrind --tool=cachegrind /bin/ls`
+`valgrind /bin/ls --tool=cachegrind`
 43. Valgrind also includes a tool to capture information about the function calls your program makes.  Show how to run valgrind to collect this information (you may need top use some google foo here):
-`valgrind --tool=callgrind`
+`valgrind --tool=callgrind /bin/ls`
 44. The output of call grind is less than impressive, but there another program that can be used to interpet the results.  Use some Google foo and show the command to show the annotated call history after running valgrind.  Just show the new program.
-`callgrind_annotate callgrind.out.<pid>`
+`valgrind --tool=callgrind_annotate /bin/ls`
 45. Valgrind also has a tool for analyzing threads which will be useful later in the semester.  Just enter the name of the tool below.
-`helgrind`
+`valgrind --tool=helgrind`
