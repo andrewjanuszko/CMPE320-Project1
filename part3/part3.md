@@ -33,11 +33,11 @@ also really common and offer a wide variety of tools, knowing the basics of the
 
 
 1.	Write the command line to use vi or vim to edit a file
-`vim`
+`vi`
 2.	From within vim, how would you save a file
-`:x`
+`:wq`
 3.	From within vim, how would force save a file
-
+`:x`
 4. Write the current file to a new file name 'moe.txt':
 `:w moe.txt`
 5.	From within vim, how you insert one file into another file
