@@ -33,11 +33,11 @@ also really common and offer a wide variety of tools, knowing the basics of the
 
 
 1.	Write the command line to use vi or vim to edit a file
-`vi`
+`vi file`
 2.	From within vim, how would you save a file
-`:wq`
+`:w`
 3.	From within vim, how would force save a file
-`:x`
+`:w!`
 4. Write the current file to a new file name 'moe.txt':
 `:w moe.txt`
 5.	From within vim, how you insert one file into another file
@@ -49,17 +49,17 @@ also really common and offer a wide variety of tools, knowing the basics of the
 8.	Write the vim command to replace all commas with colons in the whole file:
 `:%s/,/:/g`
 9.	Yank 8 lines from the current editor text into the copy buffer (hint: this does not get the colon):
-`8Y`
+`8y`
 10. Paste the contents of the current copy buffer at the location of the cursor (hint: this doesn't get the colon either):
-`P`
+`p`
 11. Use the "bang" operator to run "gcc test.c":
-`! gcc test.c
+`!gcc test.c`
 12. Use vim's internal make command to build a project?
 `:make`
 13. After using vim's internal make command, how you go to the next compliation error? (see :h quickfix.txt for direction)
 `:cnext`
 14. After using vim's internal make command, how you go to the previous compliation error? (see :h quickfix.txt for direction)
-`cprevious`
+`:cprevious`
 
 # Using GIT
 This section explores using `git` from the command line.  Git was designed for use at the command line, and while there 
@@ -91,9 +91,9 @@ code base.
 25. Use `git` to compare the branch `version1` with the current state of the repository:
 `git diff version1`
 26. Use `git` to revert any changes to the file named 'main.c':
-`git-restore main.c`
+`git-revert main.c`
 27. Use `git` to revert all changes to all files:
-`git restore .`
+`git-revert .`
 28. The git log contains a history of all commits made to a project.  It can be really useful to assess how much someone is contributing to a project.  Using what you've learned so far, use the git log command to retrieve all the commits, find just the author entries, remove the "Author:" tag, sort them, count the unique entires, and the sort the list in descending order.
 
 
@@ -101,19 +101,25 @@ code base.
 The GNU debugger is one of the most important tools for a developer.  This set of exercises will introduce you to some basic GDB commands.  One of the interesting aspects of GDB is that it runs completely in a terminal, reading from `stdin`, and writing to `stdout`.  In the sample files for this part there is a pre-compiled executable, `debug.bin`.  This is the executable that will be used in the tests for each of the commands.
 
 29. Use GDB to open an executable (just give the command line)
-
+`gdb debug.bin`
 
 30. GDB can run the program under test, and can even give command line arguments to it.  Give the GDB commands to set three command line arguments to the program: "one two three", and then run the program.  Do not show the command to run GDB, the test do that for you (i.e. it will use the command from question #28).
-
+`set args "one, two, three"`
 
 31. When a program crashes, UNIX systems can be configured to _dump core_, a historical term from the days of the old core memory systems.  The core file is a complete description of your process when the OS killed it.  This is incredibly useful for _post mortem_ debugging, especially for complex programs.  However, the size of these files can be quite large, so the feature is turned off by default.  Show the `ulimit` command to enable the generation of a core file when a program crashes.
-
+`ulimit -c unlimited`
 32. Use the GDB to open a core file and print the location where it aborted.  Give just the input to GDB, the test will run GDB for you.
-
+`gdb core`
 33. GDB allows you to set break points before running a program.  Give the command to set a break point on a function called "copy", and then run the program.
-
+```
+gdb break copy
+run
+```
 34. GDB tracks the connection between source code and executable code.  Show the GDB commands to list only the source for the copy function, and then print a break point on the line for the memcpy.  As before, GDB will already be running.
-
+```
+list copy
+break memcpy
+``` 
 35. GDB allows a special type of break point called a watch point (aka data breakpoint).  The watch point will detect whenever a variable is changed, any time its changed.  Watching local variables can only happen after the function has been called.  So, show the GDB commands to break when the `main` function is called, run the program, and when it breaks, set a watch point on the local variable `i`, and then continue running the program.  This is only four commands.
 
 
@@ -134,14 +140,14 @@ The GNU debugger is one of the most important tools for a developer.  This set o
 Perhaps one of the most important developer's tools for C programmers is `valgrind`, a tool that will analyze the execution of your code and analyze it for memory issues, performance issues, and other problems.
 
 40. The `debug.bin` program in that we've been using clearly has a segfault.  Show the command to run `valgrind` on your this program.
-
+`valgrind ./debug.bin`
 41. Valgrind can also track full details about leaked memory.  Show the valgrind command line to perform a full leak check on the `./debug.bin`:
-
+`valgrind ./debug.bin --leak-check=full`
 42. Valgrind includes several different tools.  One interesting one is the `cachegrind` tool, which can show instruction hits/misses, as well as branch prediction accuracy.  Show the command to run the `cachegrind` tool on `/bin/ls`:
-
+`valgrind --tool=cachegrind /bin/ls`
 43. Valgrind also includes a tool to capture information about the function calls your program makes.  Show how to run valgrind to collect this information (you may need top use some google foo here):
-
+`valgrind --tool=callgrind`
 44. The output of call grind is less than impressive, but there another program that can be used to interpet the results.  Use some Google foo and show the command to show the annotated call history after running valgrind.  Just show the new program.
-
+`callgrind_annotate callgrind.out.<pid>`
 45. Valgrind also has a tool for analyzing threads which will be useful later in the semester.  Just enter the name of the tool below.
-
+`helgrind`
