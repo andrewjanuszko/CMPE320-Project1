@@ -37,8 +37,14 @@ UNIX includes hundreds of small utilities each of which that can transform their
 This has given UNIX an edge for power-users who can string together command lines to perform a variety of tasks.  
 
 1. Use the echo command and redirection to create a file called "output", and echo the string "hello world".
+```
+    echo hello world | cat > output
+    cat output
+```
 
 2. Use the echo command and redirection to append to the file called "output", and add the phrase "from the shell".
+
+`echo "from the shell" >> output`
 
 3. Use the "ls" command to list the files in /etc and pipe the output to the grep utility to look for file names contain at least one upper case letter (use regular expressions).
 
