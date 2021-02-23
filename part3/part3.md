@@ -33,7 +33,7 @@ also really common and offer a wide variety of tools, knowing the basics of the
 
 
 1.	Write the command line to use vi or vim to edit a file
-`vi file`
+`vim`
 2.	From within vim, how would you save a file
 `:w`
 3.	From within vim, how would force save a file
@@ -140,9 +140,9 @@ break memcpy
 Perhaps one of the most important developer's tools for C programmers is `valgrind`, a tool that will analyze the execution of your code and analyze it for memory issues, performance issues, and other problems.
 
 40. The `debug.bin` program in that we've been using clearly has a segfault.  Show the command to run `valgrind` on your this program.
-`valgrind debug.bin`
+`valgrind ./debug.bin`
 41. Valgrind can also track full details about leaked memory.  Show the valgrind command line to perform a full leak check on the `./debug.bin`:
-`valgrind --leak-check=full debug.bin ./debug.bin`
+`valgrind --leak-check=full ./debug.bin`
 42. Valgrind includes several different tools.  One interesting one is the `cachegrind` tool, which can show instruction hits/misses, as well as branch prediction accuracy.  Show the command to run the `cachegrind` tool on `/bin/ls`:
 `valgrind /bin/ls --tool=cachegrind`
 43. Valgrind also includes a tool to capture information about the function calls your program makes.  Show how to run valgrind to collect this information (you may need top use some google foo here):
