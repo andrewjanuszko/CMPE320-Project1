@@ -104,12 +104,15 @@ The GNU debugger is one of the most important tools for a developer.  This set o
 `gdb debug.bin`
 
 30. GDB can run the program under test, and can even give command line arguments to it.  Give the GDB commands to set three command line arguments to the program: "one two three", and then run the program.  Do not show the command to run GDB, the test do that for you (i.e. it will use the command from question #28).
-`set args one two three`
+```
+set args one two three`
+run
+```
 
 31. When a program crashes, UNIX systems can be configured to _dump core_, a historical term from the days of the old core memory systems.  The core file is a complete description of your process when the OS killed it.  This is incredibly useful for _post mortem_ debugging, especially for complex programs.  However, the size of these files can be quite large, so the feature is turned off by default.  Show the `ulimit` command to enable the generation of a core file when a program crashes.
 `ulimit -c unlimited`
 32. Use the GDB to open a core file and print the location where it aborted.  Give just the input to GDB, the test will run GDB for you.
-`program core`
+`core`
 33. GDB allows you to set break points before running a program.  Give the command to set a break point on a function called "copy", and then run the program.
 ```
 break copy
@@ -119,16 +122,24 @@ run
 ```
 list copy
 break memcpy
-``` 
+run
+```
 35. GDB allows a special type of break point called a watch point (aka data breakpoint).  The watch point will detect whenever a variable is changed, any time its changed.  Watching local variables can only happen after the function has been called.  So, show the GDB commands to break when the `main` function is called, run the program, and when it breaks, set a watch point on the local variable `i`, and then continue running the program.  This is only four commands.
-
-
+```
+break main
+run
+watch i
+continue
+```
 36. GDB watch points can actually use complex expressions, like `a*a + b *b > 40`.  Like the previous question, set a watch point on i, but this time, when its value is > 2.  Note: the variable i is used to loop over the command line arguments, so you'll need to set at least three command line arguments, `one two three`.
 
 
 37. GDB can show you the call stack of the program when it encounters a break point.  As in a previous question, show the GDB commands to put a break point in the `copy` function, run the command, and then show the call stack.
-
-
+```
+break copy
+run
+frame
+```
 38. GDB can also show you local variables whenever it encounters a break point.  Look up the `info` command to show the local variables.  Show the GDB commands to put a break point in at `copy`, and then run the program, and then display the local variables.  
 
 
@@ -146,8 +157,8 @@ Perhaps one of the most important developer's tools for C programmers is `valgri
 42. Valgrind includes several different tools.  One interesting one is the `cachegrind` tool, which can show instruction hits/misses, as well as branch prediction accuracy.  Show the command to run the `cachegrind` tool on `/bin/ls`:
 `valgrind /bin/ls --tool=cachegrind`
 43. Valgrind also includes a tool to capture information about the function calls your program makes.  Show how to run valgrind to collect this information (you may need top use some google foo here):
-`valgrind --tool=callgrind /bin/ls`
+`valgrind /bin/ls --tool=callgrind`
 44. The output of call grind is less than impressive, but there another program that can be used to interpet the results.  Use some Google foo and show the command to show the annotated call history after running valgrind.  Just show the new program.
-`valgrind --tool=callgrind_annotate /bin/ls`
+`valgrind /bin/ls --tool=callgrind_annotate`
 45. Valgrind also has a tool for analyzing threads which will be useful later in the semester.  Just enter the name of the tool below.
 `valgrind --tool=helgrind`
