@@ -47,30 +47,30 @@ This has given UNIX an edge for power-users who can string together command line
 `echo "from the shell" >> output`
 
 3. Use the "ls" command to list the files in /etc and pipe the output to the grep utility to look for file names contain at least one upper case letter (use regular expressions).
-
+`ls /etc | grep "[A-Z]"`
 4. Run the "ls" command to list files in "/usr" and pipe its output to the "tee" command.  Use the tee command to create a file called "output".  You should see the contents on the terminal and in the output file.  Tee creates a "tee" in the pipeline.
-
+`ls /usr | tee output`
 5. Use the "grep" command to look, recursively, in the "/etc" directory for files containing the word "password" and send it through the "tee" command.  But, since you won't be able to read all files, you'll need to send standard error to standard out so that "tee" will see both output and error messages.  Hint: you'll need to put the redirection of stderr to stdout before the pipe operator.
-
+`grep -r password /etc 2>&1 | tee`
 6. Use the "cut" command to extract just the email address from the file "addrbook.csv" (its in field 4), but redirect the output to a file called "email.txt"
-
+`cut -d, -f 4 addrbook.csv > email.txt`
 7. The "fmt" command can reformat text.  Use it to reformat the file "words.txt" into a column of words (paragraph width of 1).  Pipe the output into the "sort" command, and then pipe the output to "uniq", with the option to count the occurences.  Then pipe the output to sort the result numerically in descending order, and then finally display the counts of the top 10 words (first 10 lines).
-
+`fmt -w 1 words.txt | sort | uniq -c | sort -dr | head`
 8. For each of the top 10 words in the "words.txt" file (see previous question), this time, "cut" off the count and display the result.
-
+`fmt -w 1 words.txt | sort | uniq -c | sort -dr | head | awk '{print $2}'`
 9. For each file in the /etc current directory, create a list of the file's group, and then pipe that through sort, unique, and finally, sort into which group owns the most files; show the group and number of files.
 
 
 10. Use the "fmt" command to reformat the words.txt into a "balanced" paragraph and then pipe the output to the "mail" command, given the subject "Shell Redirection" and email it noreply@example.com
-
+`fmt words.txt | mail -s "Shell Redirection" noreply@example.com`
 11.	Use the find to list all files in the "/etc" directory, but pipe the output to one of the pagination programs (more or less) to view the output one page at a time:
-
+`find /etc | less`
 12.	Use the ps command to list all process, then pipe into the grep command to filter it to lines that contain the word "bash"
-
+`ps | grep bash`
 13.	Use the git command line utility to list all of the available branches that include the string “release-to-test”
-
+`git grep release-to-test $(git rev-list --all)`
 14. Use the "paste" command to "serialize" the "nums.txt" file into a single line, using a delimiter of "+", which creates an arithmetic expression.  Pipe this into the "bc" program to compute the sum of the numbers.
-
+`paste -s -d "+" nums.txt | bc`
 15. Use the "ifconfig" command find only lines containing "inet" addresses.
 
  
@@ -79,11 +79,11 @@ Find one of the millions of references on the sed tool then answer these questio
 Remember, sed expects its input to come from standard input, and it writes its output to standard output – so you’ll want to use the pipe operations:
 
 16.	Echo the text "Trump wins election" and pipe through sed to replace the text "Trump" with "Biden"
-
+`echo "Trump wins election" | sed 's/Trump/Biden/'`
 17.	Echo the phrase "this is a test,,this is only a test" through sed, and use character types to delete *all* punctation marks.
-
+`echo "this is a test,,this is only a test" | sed 's/[[:punct:]]//g'`
 18.	Use sed on the "addrbook.txt" to replace every occurrence of an email address at "teleworm.us" to "telework.us" - but in place (actually edit the file).
-
+`sed -i 's/teleworm.us/telework.us/g' addrbook.txt`
  
 # Programming with awk
 Find one of the millions of references on the awk tool then answer these questions (some of these are basically Hacker Rank questions, so theres some easy Hackos here).  
