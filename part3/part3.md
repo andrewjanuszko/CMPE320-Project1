@@ -33,7 +33,7 @@ also really common and offer a wide variety of tools, knowing the basics of the
 
 
 1.	Write the command line to use vi or vim to edit a file
-`vim`
+`vi`
 2.	From within vim, how would you save a file
 `:w`
 3.	From within vim, how would force save a file
