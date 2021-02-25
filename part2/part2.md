@@ -126,6 +126,8 @@ numbers in the address book.
 
 27. Write the command to add the "/foo" directory to end of the environment variable where UNIX searches for executables.
 
+`export PATH=$PATH:/foo`
+
 28. Show all environment variables and grep for any that contain the word "bash"
 
 29. Show the command that would change the prompt (where you type commands) to "enter command> "
