@@ -132,7 +132,11 @@ watch i
 continue
 ```
 36. GDB watch points can actually use complex expressions, like `a*a + b *b > 40`.  Like the previous question, set a watch point on i, but this time, when its value is > 2.  Note: the variable i is used to loop over the command line arguments, so you'll need to set at least three command line arguments, `one two three`.
-
+```
+run
+if i > 2
+watch i
+```
 
 37. GDB can show you the call stack of the program when it encounters a break point.  As in a previous question, show the GDB commands to put a break point in the `copy` function, run the command, and then show the call stack.
 ```
