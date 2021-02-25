@@ -137,6 +137,19 @@ Use “bash” to write the following as shell scripts (there are thousands of s
 
 30.	Print all the odd numbers from 1 to 99 on the terminal
 
+```
+INDEX="0"
+while [ $INDEX -lt 100 ]
+do
+  ISEVEN=$(( $INDEX % 2 ))
+  if [ $ISEVEN -ne 0 ]
+  then
+    echo $INDEX
+  fi
+  INDEX=$(($INDEX + 1))
+done
+```
+
 31.	Write a bash script that will loop over all of the file names in the current directory (look up bash for loops) and use an if statement and test to determine if the file is a zero length file.  If it is, print its name. Hint: check out the bash man page to look for the buillt in comparisons.  You should find a way to test if a file is not zero, but that shouldn't be a complication!
 
 32. Print a times table from 1 to 10 on each dimension  For example, your output should look like:
