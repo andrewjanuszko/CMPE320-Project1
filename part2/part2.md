@@ -37,9 +37,8 @@ UNIX includes hundreds of small utilities each of which that can transform their
 This has given UNIX an edge for power-users who can string together command lines to perform a variety of tasks.  
 
 1. Use the echo command and redirection to create a file called "output", and echo the string "hello world".
-```
-    echo hello world | cat > output
-```
+
+`echo hello world | cat > output`
 
 2. Use the echo command and redirection to append to the file called "output", and add the phrase "from the shell".
 
