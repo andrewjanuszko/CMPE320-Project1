@@ -93,7 +93,7 @@ Remember, sed expects its input to come from standard input, and it writes its o
 `echo "Trump wins election" | sed 's/Trump/Biden/'`
 17.	Echo the phrase "this is a test,,this is only a test" through sed, and use character types to delete *all* punctation marks.
 
-`echo "this is a test,,this is only a test" | sed 's/ [[:punct:]] //g'`
+`echo "this is a test,,this is only a test" | sed 's/[[:punct:]]/ /g'`
 
 18.	Use sed on the "addrbook.txt" to replace every occurrence of an email address at "teleworm.us" to "telework.us" - but in place (actually edit the file).
 `sed -i 's/teleworm.us/telework.us/g' addrbook.txt`
