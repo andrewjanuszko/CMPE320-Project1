@@ -54,7 +54,7 @@ This has given UNIX an edge for power-users who can string together command line
 
 5. Use the "grep" command to look, recursively, in the "/etc" directory for files containing the word "password" and send it through the "tee" command.  But, since you won't be able to read all files, you'll need to send standard error to standard out so that "tee" will see both output and error messages.  Hint: you'll need to put the redirection of stderr to stdout before the pipe operator.
 
-`grep -r "password" /etc 2>&1 | tee`
+`grep 2>&1 -r "password" /etc | tee`
 
 6. Use the "cut" command to extract just the email address from the file "addrbook.csv" (its in field 4), but redirect the output to a file called "email.txt"
 
