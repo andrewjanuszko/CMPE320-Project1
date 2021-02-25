@@ -53,7 +53,7 @@ also really common and offer a wide variety of tools, knowing the basics of the
 10. Paste the contents of the current copy buffer at the location of the cursor (hint: this doesn't get the colon either):
 `p`
 11. Use the "bang" operator to run "gcc test.c":
-`! gcc test.c`
+`test.c ! gcc test.c`
 12. Use vim's internal make command to build a project?
 `:make`
 13. After using vim's internal make command, how you go to the next compliation error? (see :h quickfix.txt for direction)
