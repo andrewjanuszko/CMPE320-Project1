@@ -33,7 +33,7 @@ also really common and offer a wide variety of tools, knowing the basics of the
 
 
 1.	Write the command line to use vi or vim to edit a file
-`vi`
+`vi foo.c`
 2.	From within vim, how would you save a file
 `:w`
 3.	From within vim, how would force save a file
@@ -41,7 +41,7 @@ also really common and offer a wide variety of tools, knowing the basics of the
 4. Write the current file to a new file name 'moe.txt':
 `:w moe.txt`
 5.	From within vim, how you insert one file into another file
-`:w>> file`
+`:e larry.txt`
 6.	Write a sed script to replace all commas with colons in a file named "commas.txt"
 `sed 's/,/:/g' commas.txt`
 7.	Write the vim command to replace all commas with colons in the current line in the editor:
@@ -53,7 +53,10 @@ also really common and offer a wide variety of tools, knowing the basics of the
 10. Paste the contents of the current copy buffer at the location of the cursor (hint: this doesn't get the colon either):
 `p`
 11. Use the "bang" operator to run "gcc test.c":
-`./test ! gcc test.c`
+```
+gcc test.c
+!g
+```
 12. Use vim's internal make command to build a project?
 `:make`
 13. After using vim's internal make command, how you go to the next compliation error? (see :h quickfix.txt for direction)
@@ -95,7 +98,7 @@ code base.
 27. Use `git` to revert all changes to all files:
 `git reset --hard`
 28. The git log contains a history of all commits made to a project.  It can be really useful to assess how much someone is contributing to a project.  Using what you've learned so far, use the git log command to retrieve all the commits, find just the author entries, remove the "Author:" tag, sort them, count the unique entires, and the sort the list in descending order.
-
+`git log`
 
 # Using GDB
 The GNU debugger is one of the most important tools for a developer.  This set of exercises will introduce you to some basic GDB commands.  One of the interesting aspects of GDB is that it runs completely in a terminal, reading from `stdin`, and writing to `stdout`.  In the sample files for this part there is a pre-compiled executable, `debug.bin`.  This is the executable that will be used in the tests for each of the commands.
@@ -105,14 +108,14 @@ The GNU debugger is one of the most important tools for a developer.  This set o
 
 30. GDB can run the program under test, and can even give command line arguments to it.  Give the GDB commands to set three command line arguments to the program: "one two three", and then run the program.  Do not show the command to run GDB, the test do that for you (i.e. it will use the command from question #28).
 ```
-set args one two three`
+set args one two three
 run
 ```
 
 31. When a program crashes, UNIX systems can be configured to _dump core_, a historical term from the days of the old core memory systems.  The core file is a complete description of your process when the OS killed it.  This is incredibly useful for _post mortem_ debugging, especially for complex programs.  However, the size of these files can be quite large, so the feature is turned off by default.  Show the `ulimit` command to enable the generation of a core file when a program crashes.
 `ulimit -c unlimited`
 32. Use the GDB to open a core file and print the location where it aborted.  Give just the input to GDB, the test will run GDB for you.
-`core`
+`where`
 33. GDB allows you to set break points before running a program.  Give the command to set a break point on a function called "copy", and then run the program.
 ```
 break copy

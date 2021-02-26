@@ -83,8 +83,10 @@ This has given UNIX an edge for power-users who can string together command line
 14. Use the "paste" command to "serialize" the "nums.txt" file into a single line, using a delimiter of "+", which creates an arithmetic expression.  Pipe this into the "bc" program to compute the sum of the numbers.
 `paste -s -d "+" nums.txt | bc`
 15. Use the "ifconfig" command find only lines containing "inet" addresses.
-
- 
+```
+ifconfig -a
+ip addr (ip a)
+```
 # Programming with sed
 Find one of the millions of references on the sed tool then answer these questions (some of these are basically Hacker Rank questions, so theres some easy Hackos here).  
 Remember, sed expects its input to come from standard input, and it writes its output to standard output – so you’ll want to use the pipe operations:
@@ -97,23 +99,23 @@ Remember, sed expects its input to come from standard input, and it writes its o
 
 18.	Use sed on the "addrbook.txt" to replace every occurrence of an email address at "teleworm.us" to "telework.us" - but in place (actually edit the file).
 `sed -i 's/teleworm.us/telework.us/g' addrbook.txt`
- 
+
 # Programming with awk
 Find one of the millions of references on the awk tool then answer these questions (some of these are basically Hacker Rank questions, so theres some easy Hackos here).  
 Remember, just like sed, awk expects its input to come from standard input, and it writes its output to standard output – so you’ll want to use the pipe operations.
 Hacker Rank also has a section awk, which may be useful and vaguely similar.  One thing that may be helpful is that Awk uses space as the default delimiter.  To change
 that character you can use the "FS" variable.  You can change it to something else, for example, tabs:  `awk -vFS="\t" '{ print $3 }' < addrbook.txt` will print all of the phone
 numbers in the address book.
- 
+
 19. Write an awk script that print the email address for everyone in Connecticut (state = CT).
-
+`awk -vFS="\t" '{if($7=="CT") print $4}' < addrbook.txt`
 20.	Write an awk script that will compute the average of the grades in "grades.txt" of three numbers (fields 2, 3, 4) and print the first field, a colon, and the average on a line (see HR: Awk #2)
-
+`awk '{avg=$2+$3+$4; print $1,":",avg/3}' < grades.txt`
 
 21.	Write an awk script that can detect any line in addrbook.txt that does contain exactly 8 fields, separated by spaces (see HR: Awk #1)
-
+`awk -vFS="\t" '{if(NF==8) print "8"}' < addrbook.txt`
 22. Use AWK to transform the nums.txt into a C language Array initialization file, e.g. `int A[] = { 1,3,5,3,2 ...};`, its OK to put everything on one long line.  Hint: check out awk BEGIN, END, and variables.
-
+`awk '{ awkArray[counter++] = $1; } END { {print "int A[] = {"} for (n=0; n<counter;n++) print awkarray[n]; print "}"}' < nums.txt`
 # UNIX Enviornment Variables
 
 23.	Write the command to set the TERM environment variable to "vt100"
