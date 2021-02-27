@@ -73,16 +73,27 @@ This has given UNIX an edge for power-users who can string together command line
 `ls -l /etc  |  awk '{print $4}' | sort -rn | uniq -c | sort -rn`
 
 10. Use the "fmt" command to reformat the words.txt into a "balanced" paragraph and then pipe the output to the "mail" command, given the subject "Shell Redirection" and email it noreply@example.com
+
 `fmt words.txt | mail -s "Shell Redirection" noreply@example.com`
+
 11.	Use the find to list all files in the "/etc" directory, but pipe the output to one of the pagination programs (more or less) to view the output one page at a time:
+
 `find /etc | less`
+
 12.	Use the ps command to list all process, then pipe into the grep command to filter it to lines that contain the word "bash"
+
 `ps | grep bash`
+
 13.	Use the git command line utility to list all of the available branches that include the string “release-to-test”
+
 `git grep release-to-test $(git rev-list --all)`
+
 14. Use the "paste" command to "serialize" the "nums.txt" file into a single line, using a delimiter of "+", which creates an arithmetic expression.  Pipe this into the "bc" program to compute the sum of the numbers.
+
 `paste -s -d "+" nums.txt | bc`
+
 15. Use the "ifconfig" command find only lines containing "inet" addresses.
+
 ```
 ifconfig -a
 ip addr (ip a)
@@ -92,13 +103,16 @@ Find one of the millions of references on the sed tool then answer these questio
 Remember, sed expects its input to come from standard input, and it writes its output to standard output – so you’ll want to use the pipe operations:
 
 16.	Echo the text "Trump wins election" and pipe through sed to replace the text "Trump" with "Biden"
+
 `echo "Trump wins election" | sed 's/Trump/Biden/'`
+
 17.	Echo the phrase "this is a test,,this is only a test" through sed, and use character types to delete *all* punctation marks.
 
 `echo "this is only a test,,this is only a test" | sed s/[[:punct:]]/' '/g`
 
 18.	Use sed on the "addrbook.txt" to replace every occurrence of an email address at "teleworm.us" to "telework.us" - but in place (actually edit the file).
 `sed -i 's/teleworm.us/telework.us/g' addrbook.txt`
+
 
 # Programming with awk
 Find one of the millions of references on the awk tool then answer these questions (some of these are basically Hacker Rank questions, so theres some easy Hackos here).  
@@ -108,8 +122,11 @@ that character you can use the "FS" variable.  You can change it to something el
 numbers in the address book.
 
 19. Write an awk script that print the email address for everyone in Connecticut (state = CT).
+
 `awk -vFS="\t" '{if($7=="CT") print $4}' < addrbook.txt`
+
 20.	Write an awk script that will compute the average of the grades in "grades.txt" of three numbers (fields 2, 3, 4) and print the first field, a colon, and the average on a line (see HR: Awk #2)
+
 `awk '{avg=$2+$3+$4; print $1,":",avg/3}' < grades.txt`
 
 21.	Write an awk script that can detect any line in addrbook.txt that does contain exactly 8 fields, separated by spaces (see HR: Awk #1)
@@ -205,7 +222,6 @@ if [ "$DIFF" != "" ]; then
 fi
 
 mv current.html previous.html
-
 ```
 
 
