@@ -120,9 +120,15 @@ numbers in the address book.
 
 23.	Write the command to set the TERM environment variable to "vt100"
 
+`export TERM=vt100`
+
 24.	Write the command show the value of the HOME environment variable 
 
+`echo $HOME`
+
 25.	Write the command to show all environment variables and pipe it through less
+
+`printenv | less`
 
 26.	Write the command to delete an environment variable PS4 (not just make its value a null string)
 
@@ -166,6 +172,17 @@ done
 >8 16 24 32 40 48 56 64 72 80 
 >9 18 27 36 45 54 63 72 81 90 
 >10 20 30 40 50 60 70 80 90 100</pre>
+
+```
+for i in {1..10}
+do
+	for j in {1..10}
+	do
+		printf "$(($i * $j)) "
+	done
+printf "\n"
+done
+```
 
 
 
