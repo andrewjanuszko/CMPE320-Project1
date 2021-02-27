@@ -144,7 +144,7 @@ numbers in the address book.
 
 29. Show the command that would change the prompt (where you type commands) to "enter command> "
 
-`export PS1 = "enter command>"`
+`export PS1="enter command>"`
 
 # UNIX Enviornment Variables
 Use “bash” to write the following as shell scripts (there are thousands of shell script references on the internet).  Normally, shell scripts would be saved to a file.  In this case, use the "multi-line code" block and put the contents here.
