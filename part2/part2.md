@@ -128,18 +128,24 @@ numbers in the address book.
 
 25.	Write the command to show all environment variables and pipe it through less
 
-`printenv | less`
+`set | less`
 
 26.	Write the command to delete an environment variable PS4 (not just make its value a null string)
+
 `unset PS4`
+
 27. Write the command to add the "/foo" directory to end of the environment variable where UNIX searches for executables.
 
 `export PATH=$PATH:/foo`
 
 28. Show all environment variables and grep for any that contain the word "bash"
-`printenv | grep bash`
+
+`set | grep bash`
+
 29. Show the command that would change the prompt (where you type commands) to "enter command> "
+
 `export PS1 = "enter command>"`
+
 # UNIX Enviornment Variables
 Use “bash” to write the following as shell scripts (there are thousands of shell script references on the internet).  Normally, shell scripts would be saved to a file.  In this case, use the "multi-line code" block and put the contents here.
 
