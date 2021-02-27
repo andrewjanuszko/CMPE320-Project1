@@ -115,7 +115,7 @@ numbers in the address book.
 21.	Write an awk script that can detect any line in addrbook.txt that does contain exactly 8 fields, separated by spaces (see HR: Awk #1)
 `awk -vFS="\t" '{if(NF==8) print "8"}' < addrbook.txt`
 22. Use AWK to transform the nums.txt into a C language Array initialization file, e.g. `int A[] = { 1,3,5,3,2 ...};`, its OK to put everything on one long line.  Hint: check out awk BEGIN, END, and variables.
-`awk '{ awkArray[counter++] = $1; } END { {print "int A[] = {"} for (n=0; n<counter;n++) print awkarray[n]; print "}"}' < nums.txt`
+`awk '{ awkArray[counter++] = $1; } END { printf "int A[] = {"; for (n=0; n<counter;n++){ if(counter-1==n) printf "%d", awkArray[n]; else printf("%d,",awkArray[n]);} printf "};\n";}' < nums.txt`
 # UNIX Enviornment Variables
 
 23.	Write the command to set the TERM environment variable to "vt100"
@@ -131,15 +131,15 @@ numbers in the address book.
 `printenv | less`
 
 26.	Write the command to delete an environment variable PS4 (not just make its value a null string)
-
+`unset PS4`
 27. Write the command to add the "/foo" directory to end of the environment variable where UNIX searches for executables.
 
 `export PATH=$PATH:/foo`
 
 28. Show all environment variables and grep for any that contain the word "bash"
-
+`printenv | grep bash`
 29. Show the command that would change the prompt (where you type commands) to "enter command> "
-
+`export PS1 = "enter command>"`
 # UNIX Enviornment Variables
 Use “bash” to write the following as shell scripts (there are thousands of shell script references on the internet).  Normally, shell scripts would be saved to a file.  In this case, use the "multi-line code" block and put the contents here.
 
