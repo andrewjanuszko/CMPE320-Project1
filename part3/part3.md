@@ -41,7 +41,7 @@ also really common and offer a wide variety of tools, knowing the basics of the
 4. Write the current file to a new file name 'moe.txt':
 `:w moe.txt`
 5.	From within vim, how you insert one file into another file
-`:e larry.txt`
+`:r larry.txt`
 6.	Write a sed script to replace all commas with colons in a file named "commas.txt"
 `sed 's/,/:/g' commas.txt`
 7.	Write the vim command to replace all commas with colons in the current line in the editor:
