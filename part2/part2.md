@@ -70,7 +70,7 @@ This has given UNIX an edge for power-users who can string together command line
 
 9. For each file in the /etc current directory, create a list of the file's group, and then pipe that through sort, unique, and finally, sort into which group owns the most files; show the group and number of files.
 
-`ls -l /etc | awk '{print $4}' | sort -rn | unique -c | sort -rn`
+`ls -l /etc  |  awk '{print $4}' | sort -rn | uniq -c | sort -rn`
 
 10. Use the "fmt" command to reformat the words.txt into a "balanced" paragraph and then pipe the output to the "mail" command, given the subject "Shell Redirection" and email it noreply@example.com
 `fmt words.txt | mail -s "Shell Redirection" noreply@example.com`
@@ -113,9 +113,13 @@ numbers in the address book.
 `awk '{avg=$2+$3+$4; print $1,":",avg/3}' < grades.txt`
 
 21.	Write an awk script that can detect any line in addrbook.txt that does contain exactly 8 fields, separated by spaces (see HR: Awk #1)
+
 `awk -vFS="\t" '{if(NF==8) print "8"}' < addrbook.txt`
+
 22. Use AWK to transform the nums.txt into a C language Array initialization file, e.g. `int A[] = { 1,3,5,3,2 ...};`, its OK to put everything on one long line.  Hint: check out awk BEGIN, END, and variables.
+
 `awk '{ awkArray[counter++] = $1; } END { printf "int A[] = {"; for (n=0; n<counter;n++){ if(counter-1==n) printf "%d", awkArray[n]; else printf("%d,",awkArray[n]);} printf "};\n";}' < nums.txt`
+
 # UNIX Enviornment Variables
 
 23.	Write the command to set the TERM environment variable to "vt100"
@@ -190,9 +194,19 @@ printf "\n"
 done
 ```
 
-
-
 33. The "wget" program can retrieve a web page.  Write a shell script that will retrieve a URL and save it as a file named "current.html".  Then, use the "diff" command, and using an "if" statement, test to see if the current.html is different than the "previous.html" and if so print the word "different" to stdout.  If they are not different produce no output.  Either way, copy the "current.html" to "previous.html".  In this manner, if you were to run this periodically you could be notified whenever a URL has changed.  You may need to use options to make wget become more quiet.
+
+```
+wget --quiet -O current.html http://www.ship.edu 2>&1 > /dev/null
+
+DIFF=$(diff current.html previous.html)
+if [ "$DIFF" != "" ]; then
+  echo different
+fi
+
+mv current.html previous.html
+
+```
 
 
 
