@@ -33,35 +33,59 @@ also really common and offer a wide variety of tools, knowing the basics of the
 
 
 1.	Write the command line to use vi or vim to edit a file
+
 `vi foo.c`
+
 2.	From within vim, how would you save a file
+
 `:w`
+
 3.	From within vim, how would force save a file
+
 `:w!`
+
 4. Write the current file to a new file name 'moe.txt':
+
 `:w moe.txt`
+
 5.	From within vim, how you insert one file into another file
+
 `:r larry.txt`
+
 6.	Write a sed script to replace all commas with colons in a file named "commas.txt"
+
 `sed 's/,/:/g' commas.txt`
+
 7.	Write the vim command to replace all commas with colons in the current line in the editor:
+
 `:s/,/:/g`
+
 8.	Write the vim command to replace all commas with colons in the whole file:
+
 `:%s/,/:/g`
+
 9.	Yank 8 lines from the current editor text into the copy buffer (hint: this does not get the colon):
+
 `8y`
+
 10. Paste the contents of the current copy buffer at the location of the cursor (hint: this doesn't get the colon either):
+
 `p`
+
 11. Use the "bang" operator to run "gcc test.c":
-```
-gcc test.c
-!g
-```
+
+`!gcc test.c`
+
 12. Use vim's internal make command to build a project?
+
 `:make`
+
 13. After using vim's internal make command, how you go to the next compliation error? (see :h quickfix.txt for direction)
+
 `:cnext`
+
 14. After using vim's internal make command, how you go to the previous compliation error? (see :h quickfix.txt for direction)
+
 `:cprevious`
 
 # Using GIT
