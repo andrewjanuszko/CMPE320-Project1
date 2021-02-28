@@ -186,7 +186,13 @@ done
 ```
 
 31.	Write a bash script that will loop over all of the file names in the current directory (look up bash for loops) and use an if statement and test to determine if the file is a zero length file.  If it is, print its name. Hint: check out the bash man page to look for the buillt in comparisons.  You should find a way to test if a file is not zero, but that shouldn't be a complication!
-
+```
+for file in *; do 
+    if [ ! -s "$file" ]; then 
+        echo "$file"
+    fi
+done
+```
 32. Print a times table from 1 to 10 on each dimension  For example, your output should look like:
 
 ><pre>1 2 3 4 5 6 7 8 9 10 
