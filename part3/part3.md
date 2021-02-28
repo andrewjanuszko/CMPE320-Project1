@@ -181,18 +181,22 @@ run
 ```
 
 34. GDB tracks the connection between source code and executable code.  Show the GDB commands to list only the source for the copy function, and then print a break point on the line for the memcpy.  As before, GDB will already be running.
+
 ```
 list copy
 break memcpy
 run
 ```
+
 35. GDB allows a special type of break point called a watch point (aka data breakpoint).  The watch point will detect whenever a variable is changed, any time its changed.  Watching local variables can only happen after the function has been called.  So, show the GDB commands to break when the `main` function is called, run the program, and when it breaks, set a watch point on the local variable `i`, and then continue running the program.  This is only four commands.
+
 ```
 break main
 run
 watch i
 continue
 ```
+
 36. GDB watch points can actually use complex expressions, like `a*a + b *b > 40`.  Like the previous question, set a watch point on i, but this time, when its value is > 2.  Note: the variable i is used to loop over the command line arguments, so you'll need to set at least three command line arguments, `one two three`.
 
 ```
@@ -202,12 +206,14 @@ rwatch i if i > 2
 ```
 
 37. GDB can show you the call stack of the program when it encounters a break point.  As in a previous question, show the GDB commands to put a break point in the `copy` function, run the command, and then show the call stack.
+
 ```
 gcc debug.c
 break copy
 run
 frame
 ```
+
 38. GDB can also show you local variables whenever it encounters a break point.  Look up the `info` command to show the local variables.  Show the GDB commands to put a break point in at `copy`, and then run the program, and then display the local variables.  
 
 ```
@@ -224,14 +230,25 @@ list locals
 Perhaps one of the most important developer's tools for C programmers is `valgrind`, a tool that will analyze the execution of your code and analyze it for memory issues, performance issues, and other problems.
 
 40. The `debug.bin` program in that we've been using clearly has a segfault.  Show the command to run `valgrind` on your this program.
+
 `valgrind ./debug.bin`
+
 41. Valgrind can also track full details about leaked memory.  Show the valgrind command line to perform a full leak check on the `./debug.bin`:
+
 `valgrind --leak-check=full ./debug.bin`
+
 42. Valgrind includes several different tools.  One interesting one is the `cachegrind` tool, which can show instruction hits/misses, as well as branch prediction accuracy.  Show the command to run the `cachegrind` tool on `/bin/ls`:
+
 `valgrind /bin/ls --tool=cachegrind`
+
 43. Valgrind also includes a tool to capture information about the function calls your program makes.  Show how to run valgrind to collect this information (you may need top use some google foo here):
+
 `valgrind /bin/ls --tool=callgrind`
+
 44. The output of call grind is less than impressive, but there another program that can be used to interpet the results.  Use some Google foo and show the command to show the annotated call history after running valgrind.  Just show the new program.
+
 `valgrind /bin/ls --tool=callgrind_annotate`
+
 45. Valgrind also has a tool for analyzing threads which will be useful later in the semester.  Just enter the name of the tool below.
+
 `valgrind --tool=helgrind`
