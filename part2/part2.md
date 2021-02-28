@@ -95,8 +95,7 @@ This has given UNIX an edge for power-users who can string together command line
 15. Use the "ifconfig" command find only lines containing "inet" addresses.
 
 ```
-ifconfig -a
-ip addr (ip a)
+ifconfig -a | grep "inet"
 ```
 # Programming with sed
 Find one of the millions of references on the sed tool then answer these questions (some of these are basically Hacker Rank questions, so theres some easy Hackos here).  
