@@ -170,7 +170,7 @@ run
 
 32. Use the GDB to open a core file and print the location where it aborted.  Give just the input to GDB, the test will run GDB for you.
 
-`where`
+`gdb --core core`
 
 33. GDB allows you to set break points before running a program.  Give the command to set a break point on a function called "copy", and then run 
 the program.
@@ -184,7 +184,7 @@ run
 
 ```
 list copy
-break memcpy
+break 9
 run
 ```
 
@@ -200,30 +200,38 @@ continue
 36. GDB watch points can actually use complex expressions, like `a*a + b *b > 40`.  Like the previous question, set a watch point on i, but this time, when its value is > 2.  Note: the variable i is used to loop over the command line arguments, so you'll need to set at least three command line arguments, `one two three`.
 
 ```
+set args one two three
 break main
 run
-rwatch i if i > 2
+watch i > 2
+c
 ```
 
 37. GDB can show you the call stack of the program when it encounters a break point.  As in a previous question, show the GDB commands to put a break point in the `copy` function, run the command, and then show the call stack.
 
 ```
-gcc debug.c
 break copy
 run
-frame
+bt
 ```
 
 38. GDB can also show you local variables whenever it encounters a break point.  Look up the `info` command to show the local variables.  Show the GDB commands to put a break point in at `copy`, and then run the program, and then display the local variables.  
 
 ```
 break copy
-gdb debug.bin
-list locals
+run
+info locals
 ```
 
 39. GDB even lets you change (some) variables.  Show GDB commands to set three command line arguments (`one, two, three`), put a break point in on line 20, run the program, and then make change the value of `argc` to 0, and then continue running the program.  This should make the for loop skip printing command line arguments!
 
+```
+set args one two three
+break 20
+run
+set args
+c
+```
 
 # Valgrind and Friends
 
