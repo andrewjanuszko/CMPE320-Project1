@@ -260,3 +260,5 @@ Perhaps one of the most important developer's tools for C programmers is `valgri
 45. Valgrind also has a tool for analyzing threads which will be useful later in the semester.  Just enter the name of the tool below.
 
 `valgrind --tool=helgrind`
+
+[//]: <> (Completed by Andrew Januszko and Andrew Wertz)

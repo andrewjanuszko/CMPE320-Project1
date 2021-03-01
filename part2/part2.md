@@ -229,5 +229,4 @@ fi
 mv current.html previous.html
 ```
 
-
-
+[//]: <> (Completed by Andrew Januszko and Andrew Wertz. Question #2 Completed by Ryan)
